@@ -44,7 +44,7 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"avd619organization_FileWatcher" /o:"avd619organization" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet restore ./FileWatcher.sln
-          dotnet test ./FileWatcher.sln --collect "Code Coverage"
-          dotnet build ./FileWatcher.sln --configuration release
+          dotnet restore FileWatcher.sln
+          dotnet test FileWatcher.sln --collect "Code Coverage"
+          dotnet build FileWatcher.sln --configuration release
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
